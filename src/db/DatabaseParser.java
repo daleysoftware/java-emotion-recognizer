@@ -1,4 +1,3 @@
-
 package erprj.db;
 
 import erprj.dro.*;
@@ -52,4 +51,3 @@ public class DatabaseParser
         return fileID() + "," + emotionType() + "," + dimReduced().toString();
     }
 }
-

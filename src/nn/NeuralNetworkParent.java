@@ -1,4 +1,3 @@
-
 package erprj.nn;
 
 public class NeuralNetworkParent
@@ -106,4 +105,3 @@ public class NeuralNetworkParent
         return m_numNodes;
     }
 }
-

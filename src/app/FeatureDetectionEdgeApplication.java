@@ -1,4 +1,3 @@
-
 package erprj.app;
 
 import erprj.db.*;
@@ -30,9 +29,6 @@ public class FeatureDetectionEdgeApplication implements ISubApplication
 
         MouthImage mouthImage = new MouthImage(src);
 
-        // Debug
-        //mouthImage.writeNext();
-
         DimensionReducedObject dimReduced =
             new DimensionReducedObject(mouthImage, 0);
 
@@ -43,4 +39,3 @@ public class FeatureDetectionEdgeApplication implements ISubApplication
         return true;
     }
 }
-

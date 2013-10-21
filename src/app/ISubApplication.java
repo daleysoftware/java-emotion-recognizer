@@ -1,4 +1,3 @@
-
 package erprj.app;
 
 import java.io.*;
@@ -12,4 +11,3 @@ public interface ISubApplication
         throws FileNotFoundException, IOException, DatabaseParserException,
                NeuralNetworkTypeException, ImageConversionException;
 }
-

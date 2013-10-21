@@ -1,4 +1,3 @@
-
 package erprj.app;
 
 import erprj.db.*;
@@ -75,4 +74,3 @@ public class FeatureDetectionMouthApplication implements ISubApplication
         return true;
     }
 }
-

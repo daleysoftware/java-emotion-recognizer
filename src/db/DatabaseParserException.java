@@ -1,4 +1,3 @@
-
 package erprj.db;
 
 public class DatabaseParserException extends Exception
@@ -8,4 +7,3 @@ public class DatabaseParserException extends Exception
         super(message);
     }
 }
-

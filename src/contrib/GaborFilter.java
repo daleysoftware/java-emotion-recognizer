@@ -1,4 +1,3 @@
-
 package erprj.contrib;
 
 import java.awt.image.BufferedImage;
@@ -344,4 +343,3 @@ public class GaborFilter
       return getConvolveOp().filter(bufferedImage, bufferedImageDestination);
    }
 }
-

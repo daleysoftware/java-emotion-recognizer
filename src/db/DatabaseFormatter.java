@@ -1,4 +1,3 @@
-
 package erprj.db;
 
 import java.io.*;
@@ -40,4 +39,3 @@ public class DatabaseFormatter
         return fileID() + "," + m_emotionType + "," + m_dimReduced.toString();
     }
 }
-

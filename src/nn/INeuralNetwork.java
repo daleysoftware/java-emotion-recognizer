@@ -1,4 +1,3 @@
-
 package erprj.nn;
 
 public interface INeuralNetwork
@@ -25,4 +24,3 @@ public interface INeuralNetwork
     // for details.
     public FormatResult test(float[] reduced);
 }
-

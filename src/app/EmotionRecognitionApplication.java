@@ -1,4 +1,3 @@
-
 package erprj.app;
 
 import java.awt.*;
@@ -152,4 +151,3 @@ public class EmotionRecognitionApplication
         sub.run();
     }
 }
-

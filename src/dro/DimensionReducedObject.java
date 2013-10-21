@@ -1,4 +1,3 @@
-
 package erprj.dro;
 
 import erprj.image.*;
@@ -248,4 +247,3 @@ public class DimensionReducedObject
         return actualFeatures;
     }
 }
-

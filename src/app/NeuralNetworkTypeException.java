@@ -1,4 +1,3 @@
-
 package erprj.app;
 
 public class NeuralNetworkTypeException extends Exception
@@ -8,4 +7,3 @@ public class NeuralNetworkTypeException extends Exception
         super(message);
     }
 }
-

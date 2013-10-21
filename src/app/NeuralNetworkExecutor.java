@@ -1,4 +1,3 @@
-
 package erprj.app;
 
 import erprj.nn.*;
@@ -68,4 +67,3 @@ public class NeuralNetworkExecutor
         return m_type;
     }
 }
-

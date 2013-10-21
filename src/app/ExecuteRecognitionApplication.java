@@ -1,4 +1,3 @@
-
 package erprj.app;
 
 import erprj.db.*;
@@ -111,4 +110,3 @@ public class ExecuteRecognitionApplication
         return true;
     }
 }
-

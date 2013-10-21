@@ -1,4 +1,3 @@
-
 package erprj.app;
 
 import java.util.*;
@@ -107,4 +106,3 @@ public class CheckRecognitionApplication
         return true;
     }
 }
-

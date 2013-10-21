@@ -1,4 +1,3 @@
-
 package erprj.nn;
 import java.util.*;
 
@@ -53,9 +52,6 @@ public class NeuralNetworkBackPropagation
         }
         while ((train.getError() > m_desiredError && epoch < m_maxEpochs) ||
                 epoch < m_minEpochs);
-
-        // Debug
-        //System.out.println(toString());
     }
 
     public FormatResult test(float[] reduced)
@@ -81,4 +77,3 @@ public class NeuralNetworkBackPropagation
         return format;
     }
 }
-

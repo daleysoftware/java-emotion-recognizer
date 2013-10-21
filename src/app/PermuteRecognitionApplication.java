@@ -1,4 +1,3 @@
-
 package erprj.app;
 
 import java.util.*;
@@ -117,4 +116,3 @@ public class PermuteRecognitionApplication
         return true;
     }
 }
-

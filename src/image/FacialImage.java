@@ -1,4 +1,3 @@
-
 package erprj.image;
 
 import java.awt.*;
@@ -200,10 +199,6 @@ public class FacialImage
 
         m_faceImage = scaled.getSubimage(minX, minY, maxX-minX+1,
                 maxY-minY+1);
-
-        // Debug
-        //new ImageViewer(m_faceImage);
-        //new ImageViewer(getGreyImage());
     }
 
     public BufferedImage getImage()
@@ -247,4 +242,3 @@ public class FacialImage
         }
     }
 }
-

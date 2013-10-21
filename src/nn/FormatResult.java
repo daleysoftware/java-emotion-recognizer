@@ -1,4 +1,3 @@
-
 package erprj.nn;
 
 import java.util.*;
@@ -53,4 +52,3 @@ public class FormatResult
         }
     }
 }
-

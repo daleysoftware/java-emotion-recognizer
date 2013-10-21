@@ -1,4 +1,3 @@
-
 package erprj.nn;
 
 import java.util.*;
@@ -116,13 +115,7 @@ public class NeuralNetworkKohonen
 
             // Set the cluster entry.
             m_clusterMap.put(maxJ, maxK);
-
-            // Debug
-            //System.out.println("emo=" + maxJ + " => res=" + maxK);
         }
-
-        // Debug
-        //System.out.println(toString());
     }
 
     public FormatResult test(float[] reduced)
@@ -170,4 +163,3 @@ public class NeuralNetworkKohonen
         return format;
     }
 }
-

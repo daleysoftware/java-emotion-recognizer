@@ -1,4 +1,3 @@
-
 package erprj.image;
 
 import java.awt.*;
@@ -23,4 +22,3 @@ public class ImageViewer extends Frame
         show();
     }
 }
-

@@ -1,4 +1,3 @@
-
 package erprj.image;
 
 public class ImageConversionException extends Exception
@@ -8,4 +7,3 @@ public class ImageConversionException extends Exception
         super(message);
     }
 }
-

@@ -1,4 +1,3 @@
-
 package erprj.image;
 
 import java.awt.*;
@@ -18,4 +17,3 @@ public class MouthImage extends FacialImage
         m_faceImage = src;
     }
 }
-
