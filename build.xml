@@ -1,0 +1,51 @@
+<!-- Java Emotion Recognition Project -->
+<project name="jemotionrec" default="all">
+
+    <target name="all">
+        <antcall target="init"/>
+        <antcall target="compile"/>
+        <antcall target="jar"/>
+        <antcall target="zipjar"/>
+    </target>
+
+    <target name="init">
+        <mkdir dir="build/"/>
+        <mkdir dir="build/classes"/>
+        <mkdir dir="build/dist"/>
+    </target>
+
+    <target name="compile">
+        <javac debug="on" srcdir="src"
+               destdir="build/classes"
+               includeAntRuntime="no">
+            <classpath>
+                <pathelement path="contrib"/>
+                <fileset dir="contrib">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+            <!-- compilerarg value="-Xlint"/ -->
+        </javac>
+    </target>
+
+    <target name="jar">
+        <jar manifest="manifest"
+        jarfile="build/dist/jemotionrec.jar"
+        basedir="build/classes">
+             <fileset dir="build/classes"/>
+        </jar>
+    </target>
+
+    <target name="zipjar">
+        <zip destfile="build/jemotionrec-distrib.jar">
+            <zipgroupfileset dir="contrib" includes="*.jar"/>
+            <zipgroupfileset dir="build/dist/" includes="*.jar"/>
+        </zip>
+    </target>
+
+    <target name="clean">
+        <delete dir="build/classes"/>
+        <delete dir="build/dist"/>
+    </target>
+
+</project>

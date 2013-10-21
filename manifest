@@ -1,0 +1,2 @@
+Main-Class: erprj.app.EmotionRecognitionApplication
+Class-Path: contrib/**.jar
