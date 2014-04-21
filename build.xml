@@ -9,14 +9,14 @@
     </target>
 
     <target name="init">
-        <mkdir dir="build/"/>
-        <mkdir dir="build/classes"/>
-        <mkdir dir="build/dist"/>
+        <mkdir dir="out/"/>
+        <mkdir dir="out/classes"/>
+        <mkdir dir="out/dist"/>
     </target>
 
     <target name="compile">
         <javac debug="on" srcdir="src"
-               destdir="build/classes"
+               destdir="out/classes"
                includeAntRuntime="no">
             <classpath>
                 <pathelement path="contrib"/>
@@ -30,22 +30,21 @@
 
     <target name="jar">
         <jar manifest="manifest"
-        jarfile="build/dist/jemotionrec.jar"
-        basedir="build/classes">
-             <fileset dir="build/classes"/>
+        jarfile="out/dist/jemotionrec.jar"
+        basedir="out/classes">
+             <fileset dir="out/classes"/>
         </jar>
     </target>
 
     <target name="zipjar">
-        <zip destfile="build/jemotionrec-distrib.jar">
+        <zip destfile="out/jemotionrec-distrib.jar">
             <zipgroupfileset dir="contrib" includes="*.jar"/>
-            <zipgroupfileset dir="build/dist/" includes="*.jar"/>
+            <zipgroupfileset dir="out/dist/" includes="*.jar"/>
         </zip>
     </target>
 
     <target name="clean">
-        <delete dir="build/classes"/>
-        <delete dir="build/dist"/>
+        <delete dir="out"/>
     </target>
 
 </project>

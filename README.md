@@ -6,3 +6,15 @@ JEmotionRec is an application that takes an image of a person's face as input an
 This project was originally developed as a project at the University of Waterloo and has since been migrated here and transformed into a more general purpose tool.
 
 Author: Matt Pillar <mpillar@uwaterloo.ca>
+
+Example
+---
+
+The following example runs the backpropagation algorithm on the given sample DRO's.
+
+    ./run.sh --exec-backprop-10-3 ./sample/training.dat ./sample/testing.dat
+
+TODO
+---
+
+The command line interface for this application isn't the best. Need to improve this.

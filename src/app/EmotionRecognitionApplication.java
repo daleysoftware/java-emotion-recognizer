@@ -35,7 +35,7 @@ public class EmotionRecognitionApplication
             " --fdet mode:\n" +
             "     When running in feature detect mode, the input is:\n" +
             "         arg0 = imageFile (PNG or JPEG format)\n" +
-            "         arg1 = emotionType (int in [0,3])\n" +
+            "         arg1 = emotionType (int)\n" +
             "     The output is the formatted image feature, i.e. the DRO.\n" +
             "     The format is: <fileHash>,<emotionType>,x1,x2,...,xN\n\n" +
             "     The op (operation) can be one of full|mouth|edge, where\n" +
@@ -52,12 +52,12 @@ public class EmotionRecognitionApplication
             "         arg0 = train.feat filename\n" +
             "         arg1 = test.feat filename\n" +
             "     Both files should contain 1 DRO signature per line. These\n" +
-            "     two training files will be combined into N one in-memory\n" +
+            "     two training files will be combined into several in-memory\n" +
             "     sets Yk = {xi in X for all i in [1,N] and i != k}, for \n" +
             "     all k in [1,N]. Then DRO signature k will be evaluated\n" +
             "     given a neural network trained with Yk.\n\n" +
             " --check-<type> mode:\n" + 
-            "     Same as permutation mode, except training is only \n " +
+            "     Same as permutation mode, except training is only \n" +
             "     applied once for all the data sets.\n\n" +
             "The <type> argument to the exec and permute modes specifies\n" +
             "the type of neural network to use. Options are:\n\n" +
