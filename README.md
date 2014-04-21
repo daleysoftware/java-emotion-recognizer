@@ -13,8 +13,3 @@ Example
 The following example runs the backpropagation algorithm on the given sample DRO's.
 
     ./run.sh --exec-backprop-10-3 ./sample/training.dat ./sample/testing.dat
-
-TODO
----
-
-The command line interface for this application isn't the best. Need to improve this.
