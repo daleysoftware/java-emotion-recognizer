@@ -11,9 +11,7 @@ import erprj.db.*;
 import erprj.image.*;
 
 /**
- * This is the main-class for the distributable jar. It can be invoked using
- * several different modes. All these modes are described by invoking the usage.
- * Usage can be invoked by running the jar with no arguments.
+ * This is the main-class for the distributable jar.
  */
 public class EmotionRecognitionApplication
 {
@@ -29,40 +27,25 @@ public class EmotionRecognitionApplication
     private static void usage()
     {
         System.out.println(
-            "\nEmotion Recognition Application\n\n" +
-            "Arguments:\n" +
-            "<--fdet-<op>|--<app>-<type>-<nodes>-<feats>> <arg0> <arg1>\n\n" +
-            " --fdet mode:\n" +
-            "     When running in feature detect mode, the input is:\n" +
-            "         arg0 = imageFile (PNG or JPEG format)\n" +
-            "         arg1 = emotionType (int)\n" +
-            "     The output is the formatted image feature, i.e. the DRO.\n" +
-            "     The format is: <fileHash>,<emotionType>,x1,x2,...,xN\n\n" +
-            "     The op (operation) can be one of full|mouth|edge, where\n" +
-            "     full does face/edge detection, mouth applies rescaling\n" +
-            "     and normalization filters, and edge does only edge\n" +
-            "     detection.\n\n" +
-            " --exec-<type> mode:\n" + 
-            "     When running execute mode, the input is:\n" +
-            "         arg0 = train.feat filename\n" +
-            "         arg1 = test.feat filename\n" +
-            "     Both files should contain 1 DRO signature per line.\n\n" +
-            " --permute-<type> mode:\n" + 
-            "     When running permuation mode, the input is:\n" +
-            "         arg0 = train.feat filename\n" +
-            "         arg1 = test.feat filename\n" +
-            "     Both files should contain 1 DRO signature per line. These\n" +
-            "     two training files will be combined into several in-memory\n" +
-            "     sets Yk = {xi in X for all i in [1,N] and i != k}, for \n" +
-            "     all k in [1,N]. Then DRO signature k will be evaluated\n" +
-            "     given a neural network trained with Yk.\n\n" +
-            " --check-<type> mode:\n" + 
-            "     Same as permutation mode, except training is only \n" +
-            "     applied once for all the data sets.\n\n" +
-            "The <type> argument to the exec and permute modes specifies\n" +
-            "the type of neural network to use. Options are:\n\n" +
-            "     1. backprop (back propagation with one hidden layer)\n" +
-            "     2. kohonen (Kohonen self organizing map)\n");
+            "Emotion Recognition Application\n\n" +
+            "Usage: <mode> <args...>\n\n" +
+            "Mode 1: fdet\n" +
+            "    Feature detection mode. When running in this mode, the args are:\n" +
+            "        arg0 = operation\n" +
+            "        arg1 = imageFile (PNG or JPEG format)\n" +
+            "        arg2 = emotionType (int)\n" +
+            "     The output format is: <fileHash>,<emotionType>,x1,x2,...,xN\n\n" +
+            "     The op can be one of full|mouth|edge, where full does face\n" +
+            "     detection, mouth applies rescaling and normalization filters,\n" +
+            "     and edge does only edge detection.\n\n" +
+            "Mode 2: recognize\n" +
+            "     Recognition mode. When running in this mode, the args are:\n" +
+            "        arg0 = type (backprop or kohonen)\n" +
+            "        arg1 = num_network_nodes (int)\n" +
+            "        arg2 = num_features (int)\n" +
+            "        arg3 = training file\n" +
+            "        arg4 = testing file\n" +
+            "     The output format is: <fileHash>,<emotionType>,p1,p2,...,pN");
     }
 
     /**
@@ -72,7 +55,7 @@ public class EmotionRecognitionApplication
         throws NeuralNetworkTypeException, FileNotFoundException,
                IOException, DatabaseParserException, ImageConversionException
     {
-        if (args.length != 3)
+        if (args.length < 1)
         {
             usage();
             return;
@@ -80,18 +63,17 @@ public class EmotionRecognitionApplication
 
         ISubApplication sub;
 
-        if (args[0].startsWith("--fdet"))
+        if (args[0].equals("fdet"))
         {
-            if (args[0].split("-").length != 4)
+            if (args.length != 4)
             {
                 usage();
                 return;
             }
 
-            String op = args[0].split("-")[3];
-
-            String imageFile = args[1];
-            int emotionType = Integer.parseInt(args[2]);
+            String op = args[1];
+            String imageFile = args[2];
+            int emotionType = Integer.parseInt(args[3]);
 
             if (op.equals("mouth"))
             {
@@ -109,38 +91,22 @@ public class EmotionRecognitionApplication
                         emotionType);
             }
         }
-        else if (args[0].startsWith("--exec") ||
-                 args[0].startsWith("--permute") ||
-                 args[0].startsWith("--check"))
+        else if (args[0].equals("recognize"))
         {
-            String trainFile = args[1];
-            String testFile = args[2];
-
-            if (args[0].split("-").length != 6)
+            if (args.length != 6)
             {
                 usage();
                 return;
             }
+            
+            String nntype = args[1];
+            int nodes = Integer.parseInt(args[2]);
+            int features = Integer.parseInt(args[3]);
+            String trainFile = args[4];
+            String testFile = args[5];
 
-            String nntype = args[0].split("-")[3];
-            int nodes = Integer.parseInt(args[0].split("-")[4]);
-            int features = Integer.parseInt(args[0].split("-")[5]);
-
-            if (args[0].startsWith("--exec"))
-            {
-                sub = new ExecuteRecognitionApplication(nntype, trainFile,
-                        testFile, nodes, features);
-            }
-            else if (args[0].startsWith("--permute"))
-            {
-                sub = new PermuteRecognitionApplication(nntype, trainFile,
-                        testFile, nodes, features);
-            }
-            else
-            {
-                sub = new CheckRecognitionApplication(nntype, trainFile,
-                        testFile, nodes, features);
-            }
+            sub = new ExecuteRecognitionApplication(nntype, trainFile,
+                    testFile, nodes, features);
         }
         else
         {
