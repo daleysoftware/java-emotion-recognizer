@@ -18,11 +18,11 @@ Usage
     Mode 1: fdet
         Feature detection mode. When running in this mode, the args are:
             arg0 = operation
-            arg1 = imageFile (PNG or JPEG format)
-            arg2 = emotionType (int)
-        The output format is: <fileHash>,<emotionType>,x1,x2,...,xN
+            arg1 = image_file (PNG or JPEG format)
+            arg2 = emotion_type (int)
+        The output format is: <file_hash>,<emotion_type>,x1,x2,...,xN
 
-        The op can be one of full|mouth|edge, where full does face
+        The operation can be one of full|mouth|edge, where full does face
         detection, mouth applies rescaling and normalization filters,
         and edge does only edge detection.
 
@@ -31,9 +31,9 @@ Usage
             arg0 = type (backprop or kohonen)
             arg1 = num_network_nodes (int)
             arg2 = num_features (int)
-            arg3 = training file
-            arg4 = testing file
-        The output format is: <fileHash>,<emotionType>,p1,p2,...,pN
+            arg3 = the name of the training file
+            arg4 = the name of the testing file
+        The output format is: <file_hash>,<emotion_type>,p1,p2,...,pN
 
 Example
 ---

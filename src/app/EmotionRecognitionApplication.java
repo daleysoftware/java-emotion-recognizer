@@ -32,10 +32,10 @@ public class EmotionRecognitionApplication
             "Mode 1: fdet\n" +
             "    Feature detection mode. When running in this mode, the args are:\n" +
             "        arg0 = operation\n" +
-            "        arg1 = imageFile (PNG or JPEG format)\n" +
-            "        arg2 = emotionType (int)\n" +
-            "     The output format is: <fileHash>,<emotionType>,x1,x2,...,xN\n\n" +
-            "     The op can be one of full|mouth|edge, where full does face\n" +
+            "        arg1 = image_file (PNG or JPEG format)\n" +
+            "        arg2 = emotion_type (int)\n" +
+            "     The output format is: <file_hash>,<emotion_type>,x1,x2,...,xN\n\n" +
+            "     The operation can be one of full|mouth|edge, where full does face\n" +
             "     detection, mouth applies rescaling and normalization filters,\n" +
             "     and edge does only edge detection.\n\n" +
             "Mode 2: recognize\n" +
@@ -43,9 +43,9 @@ public class EmotionRecognitionApplication
             "        arg0 = type (backprop or kohonen)\n" +
             "        arg1 = num_network_nodes (int)\n" +
             "        arg2 = num_features (int)\n" +
-            "        arg3 = training file\n" +
-            "        arg4 = testing file\n" +
-            "     The output format is: <fileHash>,<emotionType>,p1,p2,...,pN");
+            "        arg3 = the name of the training file\n" +
+            "        arg4 = the name of the testing file\n" +
+            "     The output format is: <file_hash>,<emotion_type>,p1,p2,...,pN");
     }
 
     /**
