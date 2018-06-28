@@ -1,4 +1,4 @@
-# Java Emotion Recognition
+# Java Emotion Recognizer
 
 JEmotionRec is an application that takes an image of a person's face as input and outputs the emotion that they are expressing given a set of training data.
 
